@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_exam_questions
     - node.type.exam
     - node.type.question
+_core:
+  default_config_hash: KoZJlG7qsG_B1LHnEg097BxZvvkJ9D2xwR4tTdNTTOw
 id: node.exam.field_exam_questions
 field_name: field_exam_questions
 entity_type: node
