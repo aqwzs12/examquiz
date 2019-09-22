@@ -3,3 +3,6 @@ type: module
 description: 'This is the exam quiz module'
 core: 8.x
 package: 'Custom'
+
+dependencies:
+  - field
