@@ -13,7 +13,7 @@ use Drupal\Core\Field\Plugin\Field\FieldWidget\EntityReferenceAutocompleteWidget
  *
  * @FieldWidget(
  *   id = "ExamFieldDefaultWidget",
- *   label = @Translation(" select"),
+ *   label = @Translation("Exam selector"),
  *   field_types = {
  *     "exam_field"
  *   }
@@ -28,29 +28,18 @@ class ExamFieldDefaultWidget extends EntityReferenceAutocompleteWidget {
    * 
    * Here there is a list of allowed element types: https://goo.gl/XVd4tA
    */
-  public function formElement(
-    FieldItemListInterface $items,
-    $delta, 
-    Array $element, 
-    Array &$form, 
-    FormStateInterface $formState
-  ) {
-
- 
-
-    $element = parent::formElement($items, $delta, $element, $form, $formState);
-    
-
-    $element['score'] = [
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
+    $widget = parent::formElement($items, $delta, $element, $form, $form_state);
+  
+    $widget['score'] = [
       '#type' => 'textfield',
       '#title' => t('Score'),
-      '#default_value' => isset($items[$delta]->score) ? 
-          $items[$delta]->score : null,
-      '#empty_value' => '',
-      '#placeholder' => t('Score'),
+      '#default_value' => isset($items[$delta]) ? $items[$delta]->score : 1,
+      '#min' => 1,
+      '#weight' => 10,
     ];
 
-    return $element;
+    return $widget;
   }
 
 }
