@@ -9,8 +9,9 @@ use Drupal\node\Entity\Node;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 
-
-
+/**
+ * Implements hook_theme().
+ */
 function examquiz_theme()
 {
   return [
