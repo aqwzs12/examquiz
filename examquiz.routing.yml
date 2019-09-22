@@ -1,0 +1,8 @@
+
+examquiz.exam_controller_show:
+  path: '/examquiz/show'
+  defaults:
+    _controller: '\Drupal\examquiz\Controller\ExamController::show'
+    _title: 'show'
+  requirements:
+    _permission: 'access content'

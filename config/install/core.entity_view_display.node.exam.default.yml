@@ -1,0 +1,47 @@
+uuid: f836c838-97a0-4fad-9025-1dbd635b0907
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.exam.body
+    - field.field.node.exam.field_exam_min_score
+    - field.field.node.exam.field_exam_questions
+    - node.type.exam
+  module:
+    - text
+    - user
+id: node.exam.default
+targetEntityType: node
+bundle: exam
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_exam_min_score:
+    weight: 102
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_exam_questions:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,22 @@
+uuid: db70f947-e4c1-4796-9296-7bbaee093b05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.question
+  module:
+    - text
+id: node.question.body
+field_name: body
+entity_type: node
+bundle: question
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

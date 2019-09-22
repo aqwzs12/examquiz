@@ -1,0 +1,23 @@
+uuid: eb67b2c9-0d83-4011-b266-059922ca13e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question_score
+    - node.type.question
+id: node.question.field_question_score
+field_name: field_question_score
+entity_type: node
+bundle: question
+label: 'question score'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

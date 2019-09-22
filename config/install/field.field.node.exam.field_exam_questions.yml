@@ -1,0 +1,28 @@
+uuid: 8aca7737-dd0f-42d1-b2a1-03c9730442af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exam_questions
+    - node.type.exam
+    - node.type.question
+id: node.exam.field_exam_questions
+field_name: field_exam_questions
+entity_type: node
+bundle: exam
+label: 'exam questions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      question: question
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
