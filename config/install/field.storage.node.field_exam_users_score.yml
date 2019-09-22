@@ -1,13 +1,11 @@
-uuid: 64ba8e7f-ab19-437d-8f3f-9e78eca5bb1d
+uuid: 7adcc320-078f-4d70-8d8a-1dc0e8a5ac46
 langcode: en
 status: true
 dependencies:
   module:
     - node
-_core:
-  default_config_hash: 6O2o-qY7QPrLISPtRPj88m3kE76dpzQi8lp8yrVcr1c
-id: node.field_exam_min_score
-field_name: field_exam_min_score
+id: node.field_exam_users_score
+field_name: field_exam_users_score
 entity_type: node
 type: integer
 settings:
@@ -15,7 +13,7 @@ settings:
   size: normal
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

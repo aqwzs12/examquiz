@@ -1,17 +1,16 @@
-uuid: 86ce1677-c60e-44a3-b411-6b701074a159
+uuid: 1c61941f-c4aa-4ab5-9829-2ce580763715
 langcode: en
 status: true
 dependencies:
   module:
     - node
-_core:
-  default_config_hash: 3GKZO_6Bw0nE9wrqAutUPCwogN5XlqFQY11itMYPYlo
-id: node.field_exam_questions
-field_name: field_exam_questions
+    - user
+id: node.field_exam_users
+field_name: field_exam_users
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: user
 module: core
 locked: false
 cardinality: -1

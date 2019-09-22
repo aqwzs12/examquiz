@@ -1,0 +1,28 @@
+uuid: 5c778866-751c-4310-bb94-0831f5707b8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exam_users
+    - node.type.exam
+id: node.exam.field_exam_users
+field_name: field_exam_users
+entity_type: node
+bundle: exam
+label: exam_users
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
