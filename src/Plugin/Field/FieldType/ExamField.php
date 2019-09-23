@@ -17,7 +17,7 @@ use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
  *   label = @Translation("Exam field"),
  *   description = @Translation("Exam Field Type"), 
  *   category = @Translation("Custom"),
- *   default_widget = "entity_reference_autocomplete",
+ *   default_widget = "ExamFieldDefaultWidget",
  *   default_formatter = "entity_reference_label",
  *   list_class = "\Drupal\Core\Field\EntityReferenceFieldItemList"
  *  )
