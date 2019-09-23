@@ -1,0 +1,21 @@
+uuid: 6e54f7df-87ad-47f0-8bc6-2e42fb129dd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - examquiz
+    - node
+    - user
+id: user.field_passed_exams
+field_name: field_passed_exams
+entity_type: user
+type: exam_field
+settings:
+  target_type: node
+module: examquiz
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

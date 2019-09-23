@@ -1,0 +1,30 @@
+uuid: c4096e5e-3c0c-42b4-ab2d-7aa2d37f75fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_passed_exams
+    - node.type.exam
+  module:
+    - examquiz
+    - user
+id: user.user.field_passed_exams
+field_name: field_passed_exams
+entity_type: user
+bundle: user
+label: 'passed exams'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      exam: exam
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: exam_field

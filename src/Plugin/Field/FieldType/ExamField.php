@@ -15,11 +15,12 @@ use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
  * @FieldType(
  *   id = "exam_field",
  *   label = @Translation("Exam field"),
- *   description = @Translation("Exam Field Type") * )
- *   category = @Translation("Reference"),
- *   default_widget = "entity_reference_autocomplete",
+ *   description = @Translation("Exam Field Type"), 
+ *   category = @Translation("Custom"),
+ *   default_widget = "ExamFieldDefaultWidget",
  *   default_formatter = "entity_reference_label",
- *   list_class = "\Drupal\Core\Field\EntityReferenceFieldItemList",
+ *   list_class = "\Drupal\Core\Field\EntityReferenceFieldItemList"
+ *  )
  */
 class ExamField extends EntityReferenceItem
 {
@@ -34,9 +35,8 @@ class ExamField extends EntityReferenceItem
     // Prevent early t() calls by using the TranslatableMarkup.
     $properties= parent::propertyDefinitions($field_definition);
 
-    $properties['score'] = DataDefinition::create('string')
+    $properties['score'] = DataDefinition::create('integer')
       ->setLabel(new TranslatableMarkup('score'))
-      ->setSetting('case_sensitive', $field_definition->getSetting('case_sensitive'))
       ->setRequired(TRUE);
 
     return $properties;
