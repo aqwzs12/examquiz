@@ -6,10 +6,14 @@ dependencies:
     - field.field.node.exam.body
     - field.field.node.exam.field_exam_min_score
     - field.field.node.exam.field_exam_questions
+    - field.field.node.exam.field_exam_users
+    - field.field.node.exam.field_exam_users_score
     - node.type.exam
   module:
     - text
     - user
+_core:
+  default_config_hash: JloGfFrYJicyUFmXLH4H0ieB71uDWcNYEn3pfe0u1cI
 id: node.exam.default
 targetEntityType: node
 bundle: exam
@@ -36,12 +40,15 @@ content:
     label: above
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  field_exam_users: true
+  field_exam_users_score: true

@@ -74,7 +74,7 @@
 
     {% for question in node.field_question_choices %}
         <div class="checkbox">
-           <input type="checkbox" name="node_{{node.id}}" value="{{ question.value }}">{{ question.value }}</input>
+           <input type="checkbox" name="node_{{node.id}}[]" value="{{ question.value }}">{{ question.value }}</input>
         </div>
     {% endfor %}
 
