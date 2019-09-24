@@ -33,10 +33,10 @@ class ExamController extends ControllerBase
       }
     }
     $exam_passed = $this->processExam($params["node"], $user_id, $score, $exam);
-    if($exam_passed){
-        var_dump("You Passed the exam succefully") ;
-    }else{
-        var_dump("You are dumb") ;
+    if ($exam_passed) {
+      var_dump("You Passed the exam succefully");
+    } else {
+      var_dump("You are dumb");
     }
     die;
     /* TODO: Not finished yet */
@@ -97,7 +97,6 @@ class ExamController extends ControllerBase
    */
   public function processExam($nid, $uid, $score, $exam_node)
   {
-    
     $user = User::load($uid);
     $score_to_pass = $this->extractScore($exam_node->get("field_exam_min_score")->getValue());
     $init_value = $user->get("field_passed_exams")->getValue();
@@ -106,11 +105,9 @@ class ExamController extends ControllerBase
     $init_value[] = $result;
     $user->set("field_passed_exams", $init_value);
     $user->save();
-
-    if($score >= $score_to_pass) {
+    if ($score >= $score_to_pass) {
       return TRUE;
     }
-    return FALSE;  
-
+    return FALSE;
   }
 }
