@@ -67,24 +67,18 @@
  */
 #}
 
-
 <h1>{{content.body}}</h1>
 
 {% if node.field_is_multiple.value %}
-
     {% for question in node.field_question_choices %}
         <div class="checkbox">
-           <input type="checkbox" name="node_{{node.id}}[]" value="{{ question.value }}">{{ question.value }}</input>
-        </div>
-    {% endfor %}
+            <input type="checkbox" name="node_{{node.id}}[]" value="{{ question.value }}">
+            {{ question.value }}</input>
+    </div>
+{% endfor %}{% else %}
 
-{% else %}
-
-    {% for question in node.field_question_choices %}
-        <div class="radio">
-           <input type="radio" name="node_{{node.id}}" value="{{ question.value }}">{{ question.value }}</input>
-        </div>
-    {% endfor %}
-
-
-{% endif %}
+{% for question in node.field_question_choices %}
+    <div class="radio">
+        <input type="radio" name="node_{{node.id}}" value="{{ question.value }}">
+        {{ question.value }}</input>
+</div>{% endfor %}{% endif %}

@@ -34,12 +34,14 @@ class ExamController extends ControllerBase
     }
     $exam_passed = $this->processExam($params["node"], $user_id, $score, $exam);
     if ($exam_passed) {
-      var_dump("You Passed the exam succefully");
+      $msg = \Drupal::config('examquiz.examconfig')->get('exam_message_success');
+      $status = \Drupal::config('examquiz.examconfig')->get('exam_message_success_status');     
     } else {
-      var_dump("You are dumb");
+      $msg = \Drupal::config('examquiz.examconfig')->get('exam_message_fail');
+      $status = \Drupal::config('examquiz.examconfig')->get('exam_message_fail_status');     
     }
-    die;
-    /* TODO: Not finished yet */
+    drupal_set_message(t($msg ,['%score' => $score]),$status );
+    return $this->redirect('<front>');  
   }
 
   /**

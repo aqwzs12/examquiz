@@ -58,7 +58,7 @@ class QuestionFieldFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-
+   
     foreach ($items as $delta => $item) {
       $elements[$delta] = ['#markup' => $this->viewValue($item)];
     }
@@ -78,6 +78,7 @@ class QuestionFieldFormatter extends FormatterBase {
   protected function viewValue(FieldItemInterface $item) {
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
+    
     return nl2br(Html::escape($item->value));
   }
 

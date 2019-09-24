@@ -1,0 +1,6 @@
+examquiz.exam_config_form:
+  title: 'ExamConfigForm'
+  route_name: examquiz.exam_config_form
+  description: 'Exam messages in case of failure and success'
+  parent: system.admin_config_system
+  weight: 99

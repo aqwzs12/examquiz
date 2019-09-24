@@ -6,3 +6,12 @@ examquiz.exam_controller_show:
     _title: 'show'
   requirements:
     _permission: 'access content'
+examquiz.exam_config_form:
+  path: '/admin/config/examquiz/examconfig'
+  defaults:
+    _form: '\Drupal\examquiz\Form\ExamConfigForm'
+    _title: 'ExamConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
