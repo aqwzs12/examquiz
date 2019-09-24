@@ -22,23 +22,21 @@ class ExamController extends ControllerBase
     $score = 0;
     $user_id = \Drupal::currentUser()->id();
     $params = $request->request->all();
-
     $exam = Node::load($params["node"]);
     foreach ($exam->get("field_exam_questions")->getValue() as $question) {
       $entity_id = $question["target_id"];
       $node = Node::load($entity_id);
       $answers = $this->extractAnswers($node->get("field_question_answers")->getValue());
       $score_question = $this->extractScore($node->get("field_question_score")->getValue());
-      var_dump($score_question);
       if ($this->processAnswers($answers, $params["node_" . $entity_id])) {
         $score += $score_question;
       }
     }
     $exam_passed = $this->processExam($params["node"], $user_id, $score, $exam);
     if($exam_passed){
-
+        var_dump("You Passed the exam succefully") ;
     }else{
-      
+        var_dump("You are dumb") ;
     }
     die;
     /* TODO: Not finished yet */
@@ -99,7 +97,7 @@ class ExamController extends ControllerBase
    */
   public function processExam($nid, $uid, $score, $exam_node)
   {
-    // TODO : Save exam & score (Exam side & user side ) after FieldType creation .
+    
     $user = User::load($uid);
     $score_to_pass = $this->extractScore($exam_node->get("field_exam_min_score")->getValue());
     $init_value = $user->get("field_passed_exams")->getValue();
