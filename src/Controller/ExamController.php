@@ -3,6 +3,7 @@
 namespace Drupal\examquiz\Controller;
 
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -21,16 +22,25 @@ class ExamController extends ControllerBase
     $score = 0;
     $user_id = \Drupal::currentUser()->id();
     $params = $request->request->all();
+
     $exam = Node::load($params["node"]);
     foreach ($exam->get("field_exam_questions")->getValue() as $question) {
       $entity_id = $question["target_id"];
       $node = Node::load($entity_id);
       $answers = $this->extractAnswers($node->get("field_question_answers")->getValue());
       $score_question = $this->extractScore($node->get("field_question_score")->getValue());
+      var_dump($score_question);
       if ($this->processAnswers($answers, $params["node_" . $entity_id])) {
         $score += $score_question;
       }
     }
+    $exam_passed = $this->processExam($params["node"], $user_id, $score, $exam);
+    if($exam_passed){
+
+    }else{
+      
+    }
+    die;
     /* TODO: Not finished yet */
   }
 
@@ -42,7 +52,7 @@ class ExamController extends ControllerBase
   {
     $result = [];
     foreach ($answers as $answer) {
-      $result[] = $answer['value'];
+      $result[] = trim($answer['value']);
     }
     return $result;
   }
@@ -69,7 +79,13 @@ class ExamController extends ControllerBase
    */
   public function processAnswers($answers, $user_answers)
   {
-    $user_answers_contaire[] = $user_answers;
+    if (is_array($user_answers)) {
+      $user_answers_contaire = array_map('trim', $user_answers);
+    } else {
+      $user_answers_contaire[] = trim($user_answers);
+    }
+    sort($user_answers_contaire);
+    sort($answers);
     if ($answers == $user_answers_contaire) {
       return TRUE;
     }
@@ -81,8 +97,22 @@ class ExamController extends ControllerBase
    * Save the date on the user side & exam side
    * 
    */
-  public function processExam($node, $uid, $score)
+  public function processExam($nid, $uid, $score, $exam_node)
   {
     // TODO : Save exam & score (Exam side & user side ) after FieldType creation .
+    $user = User::load($uid);
+    $score_to_pass = $this->extractScore($exam_node->get("field_exam_min_score")->getValue());
+    $init_value = $user->get("field_passed_exams")->getValue();
+    $result["target_id"] = $nid;
+    $result["score"] = $score;
+    $init_value[] = $result;
+    $user->set("field_passed_exams", $init_value);
+    $user->save();
+
+    if($score >= $score_to_pass) {
+      return TRUE;
+    }
+    return FALSE;  
+
   }
 }
