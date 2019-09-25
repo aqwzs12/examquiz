@@ -10,6 +10,11 @@ dependencies:
   module:
     - path
     - text
+  enforced:
+   module:
+      - examquiz
+_core:
+  default_config_hash: opPsm_5584AnzT6mwhBnlFXZTTvSC8tiWA44lmvWFcQ
 id: node.exam.default
 targetEntityType: node
 bundle: exam

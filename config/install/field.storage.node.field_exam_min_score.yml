@@ -4,8 +4,11 @@ status: true
 dependencies:
   module:
     - node
+  enforced:
+   module:
+      - examquiz
 _core:
-  default_config_hash: 6O2o-qY7QPrLISPtRPj88m3kE76dpzQi8lp8yrVcr1c
+  default_config_hash: hB5LQF3dmJFnL6RjCmV__uPCE9IYrinNTevyrg_yJWA
 id: node.field_exam_min_score
 field_name: field_exam_min_score
 entity_type: node

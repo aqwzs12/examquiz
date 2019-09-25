@@ -7,6 +7,8 @@ dependencies:
     - node.type.question
   module:
     - text
+_core:
+  default_config_hash: ibf-iy7nIvUH-PDcwT6VpKrGh-qEDzArriPxV4AzekE
 id: node.question.body
 field_name: body
 entity_type: node

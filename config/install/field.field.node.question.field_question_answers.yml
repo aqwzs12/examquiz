@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_question_answers
     - node.type.question
+_core:
+  default_config_hash: Y6fY2SX6b5k4hMc0oLuNXBgfZyZRfN7nEx7ESFkntPY
 id: node.question.field_question_answers
 field_name: field_question_answers
 entity_type: node

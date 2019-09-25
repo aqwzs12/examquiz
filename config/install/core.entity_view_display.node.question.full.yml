@@ -1,0 +1,73 @@
+uuid: 93d2ad0b-15c3-4243-a2bc-749f4aa7ce97
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.question.body
+    - field.field.node.question.field_is_multiple
+    - field.field.node.question.field_question_answers
+    - field.field.node.question.field_question_choices
+    - field.field.node.question.field_question_score
+    - node.type.question
+  module:
+    - examquiz
+    - text
+    - user
+  enforced:
+   module:
+      - examquiz
+_core:
+  default_config_hash: bg5Hy-rJvjy_G5o685Oun-8-KSdc6SEFjvuEnvuIfGI
+id: node.question.full
+targetEntityType: node
+bundle: question
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_is_multiple:
+    weight: 104
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_question_answers:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_question_choices:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: question_field_formatter
+    region: content
+  field_question_score:
+    weight: 105
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

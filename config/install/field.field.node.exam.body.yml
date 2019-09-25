@@ -7,6 +7,11 @@ dependencies:
     - node.type.exam
   module:
     - text
+  enforced:
+   module:
+      - examquiz
+_core:
+  default_config_hash: MLVu9TY8qA0cwzPA8M4sU_vAnK8MIMmIyueWsUU3SJc
 id: node.exam.body
 field_name: body
 entity_type: node

@@ -6,12 +6,13 @@ dependencies:
     - field.field.node.exam.body
     - field.field.node.exam.field_exam_min_score
     - field.field.node.exam.field_exam_questions
-    - field.field.node.exam.field_exam_users
-    - field.field.node.exam.field_exam_users_score
     - node.type.exam
   module:
     - text
-    - user
+    - user    
+  enforced:
+   module:
+      - examquiz
 _core:
   default_config_hash: JloGfFrYJicyUFmXLH4H0ieB71uDWcNYEn3pfe0u1cI
 id: node.exam.default
@@ -22,33 +23,19 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 0
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_exam_min_score:
-    weight: 102
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
   field_exam_questions:
-    weight: 103
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link: true
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  field_exam_users: true
-  field_exam_users_score: true
+  field_exam_min_score: true
+  links: true

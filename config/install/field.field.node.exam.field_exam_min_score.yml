@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_exam_min_score
     - node.type.exam
 _core:
-  default_config_hash: YuOuaicNbvNuVDUVAaufiRh0tag3Ezpc4i54BfiEWm0
+  default_config_hash: 9aBEvpjJlMnZbTwXrogLFLbfnoFys-exdeC__a2WgFw
 id: node.exam.field_exam_min_score
 field_name: field_exam_min_score
 entity_type: node
