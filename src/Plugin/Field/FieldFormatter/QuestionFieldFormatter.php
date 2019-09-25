@@ -16,11 +16,8 @@ use Drupal\Core\Form\FormStateInterface;
  *   label = @Translation("Question field formatter"),
  *   field_types = {
  *     "string",
- *     "uri",
  *   },
- *   quickedit = {
- *     "editor" = "plain_text"
- *   }
+ *   
  * )
  */
 class QuestionFieldFormatter extends FormatterBase {
@@ -60,7 +57,15 @@ class QuestionFieldFormatter extends FormatterBase {
     $elements = [];
    
     foreach ($items as $delta => $item) {
-      $elements[$delta] = ['#markup' => $this->viewValue($item)];
+      $node = $item->getEntity();
+      $nid = $node->id();
+      $is_multiple = $node->get("field_is_multiple")->getValue()[0]["value"];
+     // $elements[$delta] = ['#markup' => $this->viewHelper($is_multiple, $item->value, $nid) ];
+     $elements[$delta] = [
+     '#type' => 'inline_template',
+     '#template' => $this->viewHelper($is_multiple, $item->value, $nid),
+     ] ;
+    
     }
 
     return $elements;
@@ -75,11 +80,27 @@ class QuestionFieldFormatter extends FormatterBase {
    * @return string
    *   The textual output generated.
    */
-  protected function viewValue(FieldItemInterface $item) {
+  protected function viewValue(FieldItemInterface $item)
+  {
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
     
     return nl2br(Html::escape($item->value));
   }
 
+
+  protected function viewHelper($is_multiple, $value, $nid)
+  {
+    $result = "";
+    if ($is_multiple != "0") {
+      $result = '<input type="checkbox" name="node_' . $nid . '[]" value="' . $value . '">
+    ' . $value . '</input>';
+    } else {
+      $result = '<input type="radio" name="node_' . $nid . '" value="' . $value . '">
+    ' . $value . '</input>';
+    }
+
+    return $result;
+  }
+        
 }
