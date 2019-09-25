@@ -4,6 +4,9 @@ status: true
 dependencies:
   module:
     - node
+  enforced:
+   module:
+      - examquiz
 id: node.field_is_multiple
 field_name: field_is_multiple
 entity_type: node

@@ -6,6 +6,9 @@ dependencies:
     - examquiz
     - node
     - user
+  enforced:
+   module:
+      - examquiz
 _core:
   default_config_hash: wadMrxaQSdCjYPP95QCB9QpasfROm8jrU_qFqp2Thtw
 id: user.field_passed_exams

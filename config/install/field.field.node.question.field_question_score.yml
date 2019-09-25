@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_question_score
     - node.type.question
+_core:
+  default_config_hash: E-DPJrbeyTnVU2_Q5fNQ-IO4X3jrQ7X1spjwZFDZrVI
 id: node.question.field_question_score
 field_name: field_question_score
 entity_type: node

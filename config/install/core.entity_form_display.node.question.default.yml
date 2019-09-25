@@ -11,7 +11,12 @@ dependencies:
     - node.type.question
   module:
     - path
-    - text
+    - text    
+  enforced:
+   module:
+      - examquiz
+_core:
+  default_config_hash: J_iEAcwLXUCq9sNHkz_jiPtyIRweDJI3j0gBPw8ZMuo
 id: node.question.default
 targetEntityType: node
 bundle: question

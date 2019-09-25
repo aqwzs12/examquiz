@@ -5,10 +5,19 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.question.body
+    - field.field.node.question.field_is_multiple
+    - field.field.node.question.field_question_answers
+    - field.field.node.question.field_question_choices
+    - field.field.node.question.field_question_score
     - node.type.question
   module:
     - text
     - user
+  enforced:
+   module:
+      - examquiz
+_core:
+  default_config_hash: G3L-xO88uOJWuZix5lQONQZ405B8p3N6iI14amC26B0
 id: node.question.teaser
 targetEntityType: node
 bundle: question
@@ -27,4 +36,8 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  field_is_multiple: true
+  field_question_answers: true
+  field_question_choices: true
+  field_question_score: true

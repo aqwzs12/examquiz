@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_is_multiple
     - node.type.question
+_core:
+  default_config_hash: MBpoca1DrGJrQf_uX5iBZAeB9RUjjXBr2u1sUXXrOo8
 id: node.question.field_is_multiple
 field_name: field_is_multiple
 entity_type: node

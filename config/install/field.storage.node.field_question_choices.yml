@@ -4,6 +4,11 @@ status: true
 dependencies:
   module:
     - node
+  enforced:
+   module:
+      - examquiz
+_core:
+  default_config_hash: dHeGVBqTm9F2v0HD8rOOcMskB2u3za7K2sqEBglpjlQ
 id: node.field_question_choices
 field_name: field_question_choices
 entity_type: node

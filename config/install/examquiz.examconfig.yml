@@ -1,5 +1,5 @@
-examquiz:
-  exam_message_success: "Congratulation , You passed the exam ,Your score : %score"
-  exam_message_fail: "Sorry , You failed on the exam ,Your score : %score"
-  exam_message_fail_status: "status"
-  exam_message_success_status: "status"
+exam_message: null
+exam_message_fail: "Sorry You have failed on this exam\r\nYour Score : %score \r\nTry later."
+exam_message_success: "Congratulation , You passed the exam  !\r\nYour score : %score"
+exam_message_success_status: status
+exam_message_fail_status: status

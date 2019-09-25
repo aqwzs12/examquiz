@@ -4,11 +4,16 @@ status: true
 dependencies:
   module:
     - menu_ui
+  enforced:
+   module:
+      - examquiz
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: 1PFibeHxBawMygl8iStlGz6884WQVZeX3_nDvRq7UiI
 name: question
 type: question
 description: 'Question related to the exam'
